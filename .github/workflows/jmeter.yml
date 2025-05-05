@@ -31,8 +31,9 @@ jobs:
       run: |
         apache-jmeter-5.6.3/bin/jmeter -n -t "tests/CASE MANAGMENT V2.jmx" -l results/results.jtl
 
-    - name: Upload results as artifact
-      uses: ./.github/actions/upload-artifact
+    - name: Upload JTL results
+      uses: actions/upload-artifact@v3
       with:
-        name: jmeter-results
+        name: jmeter-jtl-results
         path: results/results.jtl
+
