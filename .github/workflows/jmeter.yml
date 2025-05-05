@@ -29,7 +29,7 @@ jobs:
 
     - name: Run JMeter test
       run: |
-        apache-jmeter-5.6.3/bin/jmeter -n -t tests/test_plan.jmx -l results/results.jtl
+        apache-jmeter-5.6.3/bin/jmeter -n -t tests/CASE MANAGMENT V2.jmx -l results/results.jtl
 
     - name: Upload results as artifact
       uses: ./.github/actions/upload-artifact
