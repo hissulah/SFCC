@@ -31,7 +31,7 @@ jobs:
         apache-jmeter-5.6.3/bin/jmeter -n -t tests/test_plan.jmx -l results/results.jtl
 
     - name: Upload results as artifact
-      uses: actions/upload-artifact@v3.1.2
+      uses: ./.github/actions/upload-artifact
       with:
         name: jmeter-results
         path: results/results.jtl
