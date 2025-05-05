@@ -32,11 +32,16 @@ jobs:
 
       - name: Run JMeter test
         run: |
-          apache-jmeter-5.6.3/bin/jmeter -n -t "tests/case_management_v2.jmx" -l results/results.jtl
+          apache-jmeter-5.6.3/bin/jmeter -n -t "tests/case_management_v2.jmx" -l results/results.jtl -j results/jmeter.log
 
       - name: Generate HTML report
         run: |
           apache-jmeter-5.6.3/bin/jmeter -g results/results.jtl -o report
+      
+      - name: Vérifier si le fichier JTL existe
+        run: |
+          ls -al results
+
 
       - name: Upload JTL results
         uses: actions/upload-artifact@v3.1.3
