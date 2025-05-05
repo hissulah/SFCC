@@ -39,13 +39,13 @@ jobs:
           apache-jmeter-5.6.3/bin/jmeter -g results/results.jtl -o report
 
       - name: Upload JTL results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: jmeter-jtl-results
           path: results/results.jtl
 
       - name: Upload HTML report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: jmeter-html-report
           path: report
