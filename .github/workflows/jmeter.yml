@@ -32,7 +32,7 @@ jobs:
 
       - name: Run JMeter test
         run: |
-          apache-jmeter-5.6.3/bin/jmeter -n -t "tests/case_management_v2.jmx" -l results/results.jtl -j results/jmeter.log
+          apache-jmeter-5.6.3/bin/jmeter -n -t "tests/CASE MANAGMENT V2.jmx" -l results/results.jtl -j results/jmeter.log
 
       - name: Generate HTML report
         run: |
