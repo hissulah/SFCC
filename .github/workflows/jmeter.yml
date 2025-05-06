@@ -37,11 +37,13 @@ jobs:
       - name: Generate HTML report
         run: |
           apache-jmeter-5.6.3/bin/jmeter -g results/results.jtl -o report
-      
-      - name: Vérifier si le fichier JTL existe
-        run: |
-          ls -al results
 
+      - name: List result files for debug
+        run: |
+          echo "=== JTL ==="
+          ls -lh results/
+          echo "=== Report ==="
+          ls -lh report/
 
       - name: Upload JTL results
         uses: actions/upload-artifact@v3
