@@ -46,13 +46,13 @@ jobs:
           ls -lh report/
 
       - name: Upload JTL results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jmeter-jtl-results
           path: results/results.jtl
 
       - name: Upload HTML report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jmeter-html-report
           path: report
