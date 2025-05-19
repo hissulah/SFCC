@@ -22,6 +22,11 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
+      - name: Set up Node.js for Puppeteer
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
       - name: Download and extract JMeter
         run: |
           wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.3.tgz
@@ -44,14 +49,13 @@ jobs:
         run: |
           apache-jmeter-5.6.3/bin/jmeter -g results/results.jtl -o report
 
-      - name: Install wkhtmltopdf
+      - name: Install Puppeteer
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wkhtmltopdf
+          npm init -y
+          npm install puppeteer
 
-      - name: Convert HTML report to PDF
-        run: |
-          wkhtmltopdf --enable-local-file-access report/index.html results/report.pdf
+      - name: Generate PDF report using Puppeteer
+        run: node tests/generate-pdf.js
 
       - name: List result files for debug
         run: |
