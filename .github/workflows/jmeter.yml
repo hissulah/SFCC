@@ -51,7 +51,7 @@ jobs:
 
       - name: Convert HTML report to PDF
         run: |
-          wkhtmltopdf report/index.html results/report.pdf
+          wkhtmltopdf --enable-local-file-access report/index.html results/report.pdf
 
       - name: List result files for debug
         run: |
