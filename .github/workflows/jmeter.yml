@@ -65,17 +65,17 @@ jobs:
         run: |
           python3 tests/generate_report.py
         
-      - name: Upload JTL results
+      - name: Upload JMeter Results
         uses: actions/upload-artifact@v4
         with:
-          name: jmeter-jtl-results
+          name: jmeter-results
           path: results/results.jtl
 
-      - name: Upload HTML report
+      - name: Upload JMeter Log
         uses: actions/upload-artifact@v4
         with:
-          name: jmeter-html-report
-          path: report
+          name: jmeter-log
+          path: jmeter-execution.log
 
       - name: Upload Custom HTML Report
         uses: actions/upload-artifact@v4
