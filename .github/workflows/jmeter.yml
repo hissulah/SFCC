@@ -49,14 +49,6 @@ jobs:
         run: |
           apache-jmeter-5.6.3/bin/jmeter -g results/results.jtl -o report
 
-      - name: Install Puppeteer
-        run: |
-          npm init -y
-          npm install puppeteer
-
-      - name: Generate PDF report using Puppeteer
-        run: node tests/generate-pdf.js
-
       - name: List result files for debug
         run: |
           echo "=== JTL ==="
@@ -64,6 +56,15 @@ jobs:
           echo "=== Report ==="
           ls -lh report/
 
+      - name: Install Python dependencies for HTML report
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install pandas jinja2 matplotlib seaborn
+      
+      - name: Generate Custom HTML Report
+        run: |
+          python3 tests/generate_report.py
+        
       - name: Upload JTL results
         uses: actions/upload-artifact@v4
         with:
@@ -76,8 +77,8 @@ jobs:
           name: jmeter-html-report
           path: report
 
-      - name: Upload PDF report
+      - name: Upload Custom HTML Report
         uses: actions/upload-artifact@v4
         with:
-          name: jmeter-pdf-report
-          path: results/report.pdf
+          name: jmeter-custom-html-report
+          path: jmeter_custom_report.html
