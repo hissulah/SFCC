@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 import os
 
 # 📥 Lecture du fichier JTL
-jtl_file = "tests/results.jtl"
+jtl_file = "results/results.jtl"
 df = pd.read_csv(jtl_file)
 
 # 🧹 Nettoyage & conversions
